@@ -7,11 +7,12 @@ import {getFavContactList} from '../action'
 
 export default function FavContact({navigation}) {
 
-  const counter = useSelector(state => state.data);
+  const favlist = useSelector(state => state.favdata);
   const dispatch = useDispatch();
 
  
   useEffect(()=>{
+    dispatch(getFavContactList());
     navigation.addListener('didFocus',
     ()=>{
       dispatch(getFavContactList());
@@ -19,7 +20,7 @@ export default function FavContact({navigation}) {
   },[])
   return (
     <View style={globalStyles.container}>
-      <FlatList data={counter} renderItem={({ item }) => (
+      <FlatList data={favlist} renderItem={({ item }) => (
         <>
         <View style = {{flex:1,flexDirection:'row',padding:5}}>
           <Image  source={item.img == ''?require('../images/defThumb.png'):{uri: 'data:image/jpeg;base64,' + item.img.data, } } style = {styles.tinyLogo}/>

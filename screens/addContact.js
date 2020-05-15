@@ -125,7 +125,6 @@ toggleFav=() =>{
 <Text style={styles.text}>Mobile</Text>
 <TextInput
  autoCorrect={false}
- editable={isUpdate?false:true}
  keyboardType='phone-pad'
  onChangeText={handleMobile}
  value={phone}

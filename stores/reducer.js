@@ -1,6 +1,6 @@
 import {GET_CONTACT_LIST,ADD_CONTACT,GET_FAV_CONTACT} from '../action'
 // reducer 
-const initialState = {data:[],saved:0}
+const initialState = {data:[],favdata:[],saved:0}
 
 function contactReducer(state=initialState,action){
     switch(action.type){
@@ -10,7 +10,7 @@ function contactReducer(state=initialState,action){
             }
             case GET_FAV_CONTACT:
         return {
-            data:action.payload    
+            favdata:action.payload    
             }
         case ADD_CONTACT:
             return{saved:action.payload}    
